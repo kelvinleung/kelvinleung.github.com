@@ -68,6 +68,6 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: github
+  type: git
   repo: https://github.com/kelvinleung/kelvinleung.github.com.git
   branch: master
