@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: Kelvin's
+subtitle: just make a little change
 description:
-author: John Doe
-language:
+author: Kelvin
+language: en
 timezone:
 
 # URL
@@ -68,4 +68,6 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: github
+  repo: https://github.com/kelvinleung/kelvinleung.github.com.git
+  branch: master
