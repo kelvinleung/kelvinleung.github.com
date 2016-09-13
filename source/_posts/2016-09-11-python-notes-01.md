@@ -1,7 +1,7 @@
 ---
 title: Python 学习笔记-01
 date: 2016-09-11 15:30:01
-tags:
+tags: python 编程 数据
 ---
 
 >Life is short, use Python.
@@ -18,7 +18,7 @@ tags:
 
 安装的话就太简单了，Mac 本身自带了 Python 2，什么都不用装直接就能用了。当然我还是建议使用 Py3 的，Py2 的中文处理体验实在是太酸爽了……Py3 的话，到官网上下载一个来装就可以了。两个甚至 N 个不同版本的 Python 在一台机上的兼容是完全没有问题的，网上会有很多教程教你如何切换版本。
 
-我直接装了最新的 Python 3.5.2，别的什么都没有动，当我需求跑 Py2 或 Py3 的脚本时，分别输入不同的命令就可以了（反正我直接用 Py3，也就多输入一个“3”而已）：
+我直接装了最新的 Python 3.5.2，别的什么都没有动，当我需要跑 Py2 或 Py3 的脚本时，分别输入不同的命令就可以了（反正我直接用 Py3，也就多输入一个“3”而已）：
 
 ```shell
 python py2-script.py
@@ -137,7 +137,7 @@ headers = {
 }
 
 def clean_data(data):
-    #  直接将 dict 转成 DataFrame
+    # 直接将 dict 转成 DataFrame
     df = DataFrame(data)
     # 换个表头再返回啊
     return df.rename(columns = headers)
