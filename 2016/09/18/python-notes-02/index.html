@@ -1,0 +1,604 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="python 编辑 数据," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="中秋在家无聊，除了教会老妈用 iPad 以外，还撸了几天代码（当然也睡了几天）。
+直播的后台，有一个问题，就是查看所有直播的那个页面，非常不友好。
+所有直播以一个不知名的排序方式排列着，正在直播的，有预告的，结束了的，还没有节目的，乱七八糟地排在一起。没有分类没有筛选，当你想知道当前正在直播的有哪些，或者说想把一些还不错的预告放到首页时，只能一页页地翻，现在已经足足40+页了！
+虽然我平时不怎么用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 学习笔记-02">
+<meta property="og:url" content="http://yoursite.com/2016/09/18/python-notes-02/index.html">
+<meta property="og:site_name" content="Kelvin's">
+<meta property="og:description" content="中秋在家无聊，除了教会老妈用 iPad 以外，还撸了几天代码（当然也睡了几天）。
+直播的后台，有一个问题，就是查看所有直播的那个页面，非常不友好。
+所有直播以一个不知名的排序方式排列着，正在直播的，有预告的，结束了的，还没有节目的，乱七八糟地排在一起。没有分类没有筛选，当你想知道当前正在直播的有哪些，或者说想把一些还不错的预告放到首页时，只能一页页地翻，现在已经足足40+页了！
+虽然我平时不怎么用">
+<meta property="og:updated_time" content="2016-09-24T15:16:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 学习笔记-02">
+<meta name="twitter:description" content="中秋在家无聊，除了教会老妈用 iPad 以外，还撸了几天代码（当然也睡了几天）。
+直播的后台，有一个问题，就是查看所有直播的那个页面，非常不友好。
+所有直播以一个不知名的排序方式排列着，正在直播的，有预告的，结束了的，还没有节目的，乱七八糟地排在一起。没有分类没有筛选，当你想知道当前正在直播的有哪些，或者说想把一些还不错的预告放到首页时，只能一页页地翻，现在已经足足40+页了！
+虽然我平时不怎么用">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/18/python-notes-02/"/>
+
+  <title> Python 学习笔记-02 | Kelvin's </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Kelvin's</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">just make a little change</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python 学习笔记-02
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-18T22:41:17+08:00" content="2016-09-18">
+              2016-09-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>中秋在家无聊，除了教会老妈用 iPad 以外，还撸了几天代码（当然也睡了几天）。</p>
+<p>直播的后台，有一个问题，就是查看所有直播的那个页面，非常不友好。</p>
+<p>所有直播以一个不知名的排序方式排列着，正在直播的，有预告的，结束了的，还没有节目的，乱七八糟地排在一起。没有分类没有筛选，当你想知道当前正在直播的有哪些，或者说想把一些还不错的预告放到首页时，只能一页页地翻，现在已经足足40+页了！</p>
+<p>虽然我平时不怎么用到这个页面，但运营哥哥已经过来吐槽过好多次了，每次他们想推东西的时候，都要找半天才能弄好。这个问题已经跪过开发好多次了，但由于新迭代在赶进度，没有人手来完善这个后台，于是，就这么一直晾着了……</p>
+<p>这不能忍啊！不懂代码的产品不是好运营，果断利用三天小长假自己撸了个工具解决之。</p>
+<h3 id="页面分析"><a href="#页面分析" class="headerlink" title="页面分析"></a>页面分析</h3><p>后台页面很简单，除去一些头头尾尾，主要就是一个表格，而我要的所有数据，都包含在这个表格中：</p>
+<table>
+<thead>
+<tr>
+<th>项目一</th>
+<th>项目二</th>
+<th>项目三</th>
+<th>项目四</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>值一</td>
+<td>值二</td>
+<td>值三</td>
+<td>值四</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>项目一<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>项目二<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>项目三<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>项目四<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>值一<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>值二<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>值三<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>值四<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>所以整个项目的思路就很简单了，想办法把页面上的表格爬下来，然后进行清理提取出要的数据，最后再根据需要进行展示。</p>
+<h3 id="爬取页面"><a href="#爬取页面" class="headerlink" title="爬取页面"></a>爬取页面</h3><p>爬取页面最简单的方法就是使用之前用过的 <code>requests</code> 包，模拟登录后，用循环就能把所有要的页面 GET 回来。假设我们的页面 URL 是： <code>http://xxx.com/data?pageNum=1</code>，<code>pageNum</code> 是当前的页码，只要提交不同的页码，就能获取所有的页面。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 模拟登录的部分省略</span></div><div class="line"></div><div class="line"><span class="comment"># 页码</span></div><div class="line">n = <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment"># Python 没有 do-while，只能用 while-break 来实现</span></div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    response = request.get(url, params = &#123;<span class="string">'pageNum'</span>: n&#125;)</div><div class="line">    n += <span class="number">1</span></div><div class="line">    <span class="comment"># statement 用来判断是否已经到了最后一页，是就退出循环</span></div><div class="line">    <span class="keyword">if</span> statement:</div><div class="line">        <span class="keyword">break</span></div></pre></td></tr></table></figure>
+<h3 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h3><p>爬数据是简单，量处理数据却是个大问题，虽然有一大堆轮子能用，但都比较麻烦，需要自己去解析 html，从各种标签里面把需要的数据抽取出来……</p>
+<p>最开始我用的是 <strong>BeautifulSoup</strong>，光是把数据拿出来就已经烦死人了，还要将拿出来的数据格式化后保存起来，那酸爽真是……后来我才知道，原来 <strong>Pandas 是可以直接读 HTML 的</strong>，<strong>Pandas 是可以直接读 HTML 的</strong>，<strong>Pandas 是可以直接读 HTML 的</strong>！！！</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"></div><div class="line">df = pd.read_html(response.text, flavor = <span class="string">'html5lib'</span>)[<span class="number">0</span>]</div></pre></td></tr></table></figure>
+<p>其中 <code>flavor</code> 用于指定解析器，默认是 lxml，可以自行替换。返回值是一个 DataFrame 的列表，对应页面里的表格，这里取第一个。</p>
+<p>能把数据取回来，但是存在哪里呢？当然是数据库啦，但由于我还没搞懂 python 的数据库怎么弄，于是我用了个比较挫的方法，通过循环写入文件来保存数据。</p>
+<p>最终爬取数据那部分的代码大概是这样的：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"></div><div class="line"><span class="comment"># 模拟登录的部分省略</span></div><div class="line"></div><div class="line">n = <span class="number">1</span></div><div class="line"></div><div class="line"><span class="comment"># 用 with 来读写文件就不用关来关去了</span></div><div class="line"><span class="keyword">with</span> open(<span class="string">'data.csv'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f</div><div class="line">  <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">      response = request.get(url, params = &#123;<span class="string">'pageNum'</span>: n&#125;)</div><div class="line">      df = pd.read_html(response.text, flavor = <span class="string">'html5lib'</span>)[<span class="number">0</span>]</div><div class="line">      n += <span class="number">1</span></div><div class="line">      <span class="comment"># 用拿回来的表格数据是否为空来判断是否已经是最后一页</span></div><div class="line">      <span class="keyword">if</span> len(df) &gt; <span class="number">0</span>:</div><div class="line">          f.write(df.to_csv(header = <span class="keyword">False</span>, index = <span class="keyword">False</span>))</div><div class="line">      <span class="keyword">else</span>:</div><div class="line">          <span class="keyword">break</span></div></pre></td></tr></table></figure>
+<p>存好的数据处理起来就比较简单了，添加表头，替换掉空值，去掉没有用的列，整理一下列的顺序什么的就不说了。</p>
+<h3 id="展示数据"><a href="#展示数据" class="headerlink" title="展示数据"></a>展示数据</h3><p>最后就是把处理好的数据进行展示了，最简单的是在 terminal 中直接展示，可以利用 <code>input()</code> 来获取不同的展示需求，展示对应的数据，比如显示不同直播状态的数据。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义一个打印函数，根据类型输出不同的结果</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_data</span><span class="params">(data, type)</span>:</span></div><div class="line">    status = <span class="string">'直播中'</span> <span class="keyword">if</span> type == <span class="number">1</span> <span class="keyword">else</span> <span class="string">'预告中'</span></div><div class="line">    <span class="comment"># 选取满足条件的，返回值是 df</span></div><div class="line">    print_data = data[data[<span class="string">'直播状态'</span>] == status]</div><div class="line">    <span class="comment"># 使用 tabulate 美化输出的表格，有不同的 tablefmt 可以选</span></div><div class="line">    print(tabulate(print_data, headers = data.columns, tablefmt = <span class="string">'grid'</span>))</div></pre></td></tr></table></figure>
+<p>推荐使用 <code>tabulate</code> 这个包，它能将给 pandas 直接打印的表格加上真正的“表格”，显示上更加清晰。</p>
+<h3 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h3><p>脚本在我本机上运行没有问题，还挺方便的，然而当我想把写好的脚本给运营他们使用的时候，总是报错。查了许多资料发现还是编码的问题，utf-8、GBK 什么的，试了很多次还是没能解决。</p>
+<p>接下来要把这个问题弄好，另外还要把写本地文件的方式，重构为用数据库去储存数据，顺便了解一下基本的数据库的知识。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python-编辑-数据/" rel="tag">#python 编辑 数据</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/11/python-notes-01/" rel="next" title="Python 学习笔记-01">
+                <i class="fa fa-chevron-left"></i> Python 学习笔记-01
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Kelvin" />
+          <p class="site-author-name" itemprop="name">Kelvin</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面分析"><span class="nav-number">1.</span> <span class="nav-text">页面分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬取页面"><span class="nav-number">2.</span> <span class="nav-text">爬取页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理数据"><span class="nav-number">3.</span> <span class="nav-text">处理数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展示数据"><span class="nav-number">4.</span> <span class="nav-text">展示数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#todo"><span class="nav-number">5.</span> <span class="nav-text">todo</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kelvin</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
